@@ -1,0 +1,97 @@
+/* Nav Styles */
+.ct-nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(182, 35, 35);
+}
+/* Target Main Logo Image */
+.ct-nav img{
+    width: 25%;
+    max-width: 100%;
+    margin-left: 2vw;
+}
+ul#horizontal-list{
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(182, 35, 35);
+}
+ul#horizontal-list li, ul#horizontal-list a{
+    display: inline;
+    text-decoration: none;
+    padding: 0.5vw;
+    color: goldenrod;
+}
+ul#horizontal-list a:nth-last-child(1){
+    border: 4px solid goldenrod;
+    border-radius: 11px;
+    margin-right: 0.2vw;
+}
+/* END NAV STYLES */
+
+
+
+/* Start of hero/header */
+#header-text{
+    padding: 2vw;
+}
+
+.header-image{
+    width: 82%;
+    max-width: 100%;
+}
+/* end of header section */
+
+
+
+/* start of middle section */
+#middle-text{
+    text-align: center;
+    padding: 13vw;
+}
+
+#middle-text h2{
+    padding: 1.5vw;
+}
+/* end of middle section */
+
+
+
+/* Start of features section */
+#features-hero1,#features-hero3,#features-hero3{
+    margin-bottom: 10vh;
+}
+
+#features-section{
+    margin: 8vw;
+}
+/* End of features section */
+
+/* Community Section */
+#community-pic{
+    width: 50%;
+    max-width: 75%;
+    margin-left: 3vw;
+}
+/* End of community section */
+
+
+/* footer section */
+.footer-text-flex{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+
+#footer-logo{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 2vw;
+}
+
+#footer{
+    border-top: 3px solid black;
+    margin-top: 20vh;
+}
+

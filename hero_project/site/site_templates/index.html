@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <!-- HEADER SECTION -->
+    <header class="row">
+        <div class="col-12 col-md-6" id='header-text'>
+            <h2>Let's Build a Super Collection of Superheroes together!</h2>
+            <h5>Create amazing collections to share with other super hero collectors.</h5>
+            <div>
+                <button class="btn btn-primary">View Our Docs</button>
+                <button class="btn btn-primary">Join Our Slack</button>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <img src="../../static/images/superheroes-list-header-img.jpg" alt="hero header image" class="header-image">
+        </div>
+    </header>
+<!-- MIDDLE SECTION -->
+    <section class="row">
+        <div class="col-12" id="middle-text">
+            <h2>Display Your Collection!</h2>
+            <p>Find or make your favorite superheroes. Harness the power you desire for your collection!</p>
+        </div>
+    </section>
+    <!-- end of middle section -->
+
+    <!-- COLLECTION FEATURES SECTION -->
+    <section class="row" id="features-section">
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/features-pic1.png" alt="features-hero1">
+            <h4>Find or Create Your Favorite Hero</h4>
+            <p>If you have always wanted to personalize your own hero, you can do that here!</p>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/features-pic3.png" alt="features-hero3">
+            <h4>Build Your Collection</h4>
+            <p>Once you create or find your favorite superheroes, you can start building your collection!</p>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/features-pic2.png" alt="features-hero2">
+            <h4>Launch Your Heroes</h4>
+            <p>You can share your collection of heroes and view collections that other users have!</p>
+        </div>
+    </section>
+    <!-- end of features section -->
+
+    <!-- Community Section -->
+    <section class="row">
+        <div class="col-12 col-md-6">
+            <img src="../../static/images/community-pic.png" alt="Hero Community" id="community-pic">
+        </div>
+        <div class="col-12 col-md-6">
+            <h4>Join the World of Superhero Collectors</h4>
+            <p>Connect with others to share, compare and collect heroes!</p>
+            <div>
+                <button class="btn btn-primary">Join Our Slack Channel!</button>
+                <button class="btn btn-primary">View on Github</button>
+            </div>
+        </div>
+    </section>
+    <!-- end of community section -->
+</div>
+
+{% endblock content %}
