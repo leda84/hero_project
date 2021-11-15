@@ -1,0 +1,30 @@
+<!-- HTML produced by the flask form -->
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset id="name">
+            {{ form.name.label }}
+            {{ form.name(class="form-control", placeholder="Place Name Here...") }}
+        </fieldset>
+        <fieldset id="alias">
+            {{ form.alias.label }}
+            {{ form.alias(class="form-control", placeholder="Place Alias Here...") }}
+        </fieldset>
+        <fieldset id="description">
+            {{ form.description.label }}
+            {{ form.description(class="form-control", placeholder="Place Description Here...") }}
+        </fieldset>
+
+        <fieldset id="comics_count-field">
+            {{ form.comics_count.label }}
+            {{ form.comics_count(class="form-control", placeholder="Place Number Here...") }}
+        </fieldset>
+
+        <fieldset id="super_power-field">
+            {{ form.super_power.label }}
+            {{ form.super_power(class="form-control", placeholder="Place Super Power Here...") }}
+        </fieldset>
+        <!-- submit button area -->
+        {{ form.submit_button(class='btn btn-primary btn-block') }}
+    </div>
+</form>

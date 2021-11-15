@@ -35,8 +35,8 @@ class User(db.Model, UserMixin):
         self.id = self.set_id()
         self.first_name = first_name
         self.last_name = last_name
-        self.password = self.set_password(password)
         self.email = email
+        self.password = self.set_password(password)
         self.token = self.set_token(24)
         self.g_auth_verify = g_auth_verify
 

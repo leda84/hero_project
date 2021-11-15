@@ -29,14 +29,19 @@
                     <li>Donate</li>
                 </a>
     
-                <a href="#">
+                <a href="{{ url_for('site.profile') }}">
                     <li>Profile</li>
                 </a>
 
                 {% if current_user.is_authenticated %}
+                <a href="{{ url_for('api.create_character') }}">
+                    <li>Create Character</li>
+                </a>
+                
                 <a href="{{ url_for('auth.logout') }}">
                     <li>Log Out</li>
                 </a>
+                
                 {% else %}
     
                 <a href="{{ url_for('auth.signin') }}">

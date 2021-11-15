@@ -40,12 +40,15 @@ def get_characters(current_user_token):
 # Endpoint to retrieve a single character
 @api.route('/characters/<id>', methods = ['GET'])
 @token_required
-def get_car(current_user_token, id):
+def get_character(current_user_token, id):
     owner = current_user_token.token
     if owner == current_user_token.token:
-        character = Character.query.get(id)
-        response = character_schema.dump(character)
-        return jsonify(response)
+        try:
+            character = Character.query.get(id)
+            response = character_schema.dump(character)
+            return jsonify(response)
+        except:
+            return jsonify({'message' : "Character ID not valid"})
     else:
         return jsonify({'message' : 'Valid Token Required'}), 401
 
@@ -53,25 +56,32 @@ def get_car(current_user_token, id):
 @api.route('/characters/<id>', methods = ['POST', 'PUT'])
 @token_required
 def update_character(current_user_token, id):
-    character = Character.query.get(id)
-    character.name = request.json['name']
-    character.alias = request.json['alias']
-    character.description = request.json['description']
-    character.comics_appeared_in = request.json['comics_appeared_in']
-    character.super_power = request.json['super_power']
-    character.user_token = current_user_token.token
-
-    db.session.commit()
-    response = character_schema.dump(character)
-    return jsonify(response)
+    owner = current_user_token.token
+    if owner == current_user_token.token:
+        character = Character.query.get(id)
+        character.name = request.json['name']
+        character.alias = request.json['alias']
+        character.description = request.json['description']
+        character.comics_appeared_in = request.json['comics_appeared_in']
+        character.super_power = request.json['super_power']
+        character.user_token = current_user_token.token
+        db.session.commit()
+        response = character_schema.dump(character)
+        return jsonify(response)
+    else:
+        return jsonify({'message' : 'You can only update the characters you own.'}), 401
 
 # Endpoint to delete a character
 @api.route('/characters/<id>', methods = ['DELETE'])
 @token_required
 def delete_character(current_user_token, id):
-    character = Character.query.get(id)
-    print(character)
-    db.session.delete(character)
-    db.session.commit()
-    response = character_schema.dump(character)
-    return jsonify(response)
+    owner = current_user_token.token
+    if owner == current_user_token.token:
+        character = Character.query.get(id)
+        print(character)
+        db.session.delete(character)
+        db.session.commit()
+        response = character_schema.dump(character)
+        return jsonify(response)
+    else:
+        return jsonify({'message' : 'You can only delete the characters you own.'}), 401
