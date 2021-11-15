@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify 
 from hero_project.helpers import token_required
 from hero_project.models import db, User, Character, character_schema, characters_schema
+from hero_project.forms import CharacterForm
 
 api = Blueprint('api', __name__, url_prefix='/api')
 
