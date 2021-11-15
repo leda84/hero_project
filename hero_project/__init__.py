@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from .models import db as root_db, login_manager, ma
 from flask_cors import CORS
+from hero_project.helpers import JSONEncoder
 
 
 
@@ -25,3 +26,5 @@ ma.init_app(app)
 migrate = Migrate(app, root_db)
 
 CORS(app)
+
+app.json_encoder = JSONEncoder

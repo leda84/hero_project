@@ -23,5 +23,5 @@ def home():
 @site.route('/profile')
 @login_required
 def profile():
-    return render_template('.profile.html')
+    return render_template('profile.html')
 
