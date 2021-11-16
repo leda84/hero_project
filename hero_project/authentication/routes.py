@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 import flask_wtf
 from werkzeug.security import check_password_hash
-from hero_project.forms import UserLoginForm, UserSignupForm
-from hero_project.models import db,User
+from hero_project.forms import UserLoginForm, UserSignupForm, CharacterForm
+from hero_project.models import db,User, Character
 from flask_login import login_user, logout_user, current_user, login_required
 
 
@@ -63,3 +63,30 @@ def signin():
 def logout():
     logout_user()
     return redirect(url_for('site.home'))
+
+@auth.route('/create', methods = ['GET', 'POST'])
+@login_required
+def create():
+    form = CharacterForm()
+    try:
+        if request.method == 'POST' and form.validate_on_submit():
+            name = form.name.data
+            alias = form.alias.data
+            description = form.description.data
+            comics_appeared_in = form.comics_appeared_in.data
+            super_power = form.super_power.data
+            user_token = current_user.token
+
+            print(name, alias, description, comics_appeared_in, super_power)
+
+            # creating/adding user to database
+            character = Character(name, alias, description, comics_appeared_in, super_power, user_token)
+            db.session.add(character)
+            db.session.commit()
+            
+            flash(f'You have successfully created a character: {name}!', "character-created")
+            return redirect(url_for('site.profile'))
+    except:
+        raise Exception('Invalid Form Data: Please check your info...')
+
+    return render_template('create.html', form = form)

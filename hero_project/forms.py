@@ -20,4 +20,5 @@ class CharacterForm(FlaskForm):
     description = StringField('Description:', validators=[DataRequired()])
     comics_appeared_in = IntegerField('Appearance(s):', validators=[DataRequired()])
     super_power = StringField('Super Power(s):', validators=[DataRequired()])
+    # user_token = StringField('Token:', validators= [DataRequired()]) # not needed b/c it's brought over at auth.routes line78
     submit_button = SubmitField()

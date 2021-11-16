@@ -25,3 +25,29 @@ def home():
 def profile():
     return render_template('profile.html')
 
+# moved to auth routes instead
+# @site.route('/create')
+# @login_required
+# def create():
+#     form = CharacterForm()
+#     try:
+#         if request.method == 'POST' and form.validate_on_submit():
+#             name = form.name.data
+#             alias = form.alias.data
+#             description = form.description.data
+#             comics_appeared_in = form.comics_appeared_in.data
+#             super_power = form.super_power.data
+
+#             print(name, alias, description, comics_appeared_in, super_power)
+
+#             # creating/adding user to database
+#             character = Character(name, alias, description, comics_appeared_in, super_power)
+#             db.session.add(character)
+#             db.session.commit()
+            
+#             flash(f'You have successfully created a character: {name}!', "character-created")
+#             return redirect(url_for('site.profile'))
+#     except:
+#         raise Exception('Invalid Form Data: Please check your info...')
+
+#     return render_template('create.html', form = form)
