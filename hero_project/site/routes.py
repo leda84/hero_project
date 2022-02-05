@@ -25,7 +25,7 @@ def home():
 def profile():
     return render_template('profile.html')
 
-# moved to auth routes instead
+# moved to auth routes instead since user needs to be authenticated(with user_token) to create
 # @site.route('/create')
 # @login_required
 # def create():

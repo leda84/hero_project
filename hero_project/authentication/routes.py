@@ -46,7 +46,7 @@ def signin():
             logged_user = User.query.filter(User.email == email).first()
             if logged_user and check_password_hash(logged_user.password, password):
                 login_user(logged_user)
-                flash('You were successfully loggin in!', 'auth-success')
+                flash('You were successfully logged in!', 'auth-success')
                 return redirect(url_for('site.profile'))
 
             else:
@@ -79,7 +79,7 @@ def create():
 
             print(name, alias, description, comics_appeared_in, super_power)
 
-            # creating/adding user to database
+            # creating/adding character to database
             character = Character(name, alias, description, comics_appeared_in, super_power, user_token)
             db.session.add(character)
             db.session.commit()
